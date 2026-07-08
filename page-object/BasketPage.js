@@ -17,7 +17,7 @@ export class BasketPage {
        
     }
 
-    async checkTotalPrice () {
+    async gotoCheckoutPage () {
         await this.checkoutButton.waitFor({ status: 'visible'});
         await this.checkoutButton.click({ force: true });
         await this.page.waitForURL('/checkout');
