@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 export class RegisterPage {
     constructor(page) {
         this.page = page;
@@ -16,8 +16,8 @@ export class RegisterPage {
  
     }
 
-    async navigate() {
-        await this.page.goto('https://aqa-app.vercel.app/login')
+    async openLoginPage() {
+        await this.page.goto('/login')
     }
 
     async fillRegistrationForm(testData) {
@@ -39,5 +39,4 @@ export class RegisterPage {
 
 }
 
-// module.exports = { RegisterPage }; 
 
