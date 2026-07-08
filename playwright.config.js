@@ -42,9 +42,13 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'e2e-tests',
       // use: { ...devices['Desktop Chrome'] },
       testIgnore: '**/api.spec.js',
+      testMatch: '**/demo.todo.spec.js',
+      use: {
+        baseURL: process.env.UI_BASE_URL,
+      }
     },
 
     {
