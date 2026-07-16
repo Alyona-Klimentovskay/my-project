@@ -1,8 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { RegisterPage } from '../page-object/RegisterPage';
 import { testData } from '../data/testUserData';
 import { cartData } from '../data/testUserData';
-import { LoginPage } from '../page-object/LoginPage';
 import { CatalogPage} from '../page-object/CatalogPage';
 import { BasketPage} from '../page-object/BasketPage';
 import { CheckoutPage } from '../page-object/CheckoutPage';
@@ -10,10 +8,9 @@ import { MyAccountPage } from '../page-object/MyAccountPage';
 
 let items;
 
-test.setTimeout(50 * 1000);
+// test.setTimeout(50 * 1000);
 // test.use({viewport: {width: 1928, height: 1080}});
 test.describe('E2E order flow', () => {
-
 
     test.beforeAll(async() => {
         console.log('beforeAll: prepare test data');
@@ -22,8 +19,9 @@ test.describe('E2E order flow', () => {
     });
 
 
-    test.beforeEach(async() => {
-        console.log('beforeEach: preconditions');
+    test.beforeEach(async({page}) => {
+        console.log('beforeEach: open catalog page');
+        await page.goto('/');
         
     });
 
@@ -43,28 +41,13 @@ test.describe('E2E order flow', () => {
     })
 
 
-
-
     test('Create user, login, order 2 items, payment', async ({ page }) => {
-        const registerPage = new RegisterPage(page);
-        const loginPage = new LoginPage(page);
         const catalogPage = new CatalogPage(page);
         const checkoutPage = new CheckoutPage(page);
         const myAccountPage = new MyAccountPage(page);
         const basketPage = new BasketPage(page);
 
-        await test.step('Open Login page', async () => {
-            await registerPage.openLoginPage();
-        })
-    
-        await test.step('Register new user', async () => {
-            await registerPage.fillRegistrationForm(testData);
-        })
-
-        await test.step('Login with created user', async () => {
-            await loginPage.login(testData.emailField, testData.passwordField);
-        })
-
+        
         await test.step('Select 2 items', async () => {
             items = await catalogPage.selectProduct();
    

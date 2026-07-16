@@ -1,0 +1,22 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://aqa-app.vercel.app",
+      "localStorage": [
+        {
+          "name": "currentUser",
+          "value": "Alysha_Keebler@gmail.com"
+        },
+        {
+          "name": "users",
+          "value": "[{\"firstName\":\"Berniece\",\"lastName\":\"Miller\",\"email\":\"Alysha_Keebler@gmail.com\",\"password\":\"koMRtuBq8PSYTo3\",\"city\":\"South Alicia\",\"country\":\"Ukraine\",\"phone\":\"+380957641380\",\"street\":\"54075 King Walk\",\"zip\":\"50947\"}]"
+        },
+        {
+          "name": "isAuthenticated",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}
