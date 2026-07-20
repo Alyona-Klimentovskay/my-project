@@ -1,5 +1,9 @@
-export class LoginPage {
+import { AbstractPage } from '../page-object/AbstractPage';
+
+
+export class LoginPage extends AbstractPage{
     constructor(page) {
+        super(page);
         this.page = page;
         this.emailField = page.locator('[id="login-email"]');
         this.passwordField = page.locator('[id="login-password"]');

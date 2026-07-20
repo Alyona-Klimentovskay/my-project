@@ -1,6 +1,9 @@
+import { AbstractPage } from '../page-object/AbstractPage';
 
-export class CheckoutPage {
+
+export class CheckoutPage extends AbstractPage{
     constructor(page) {
+        super(page);
         this.page = page;
         this.cartNumberField = page.getByPlaceholder('Card Number (16 digits)');
         this.payNowButton = page.getByText('Pay Now');

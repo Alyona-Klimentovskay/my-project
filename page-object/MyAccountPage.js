@@ -1,6 +1,9 @@
+import { AbstractPage } from '../page-object/AbstractPage';
 
-export class MyAccountPage {
+
+export class MyAccountPage extends AbstractPage{
     constructor(page) {
+        super(page);
         this.page = page;
         this.items = page.locator('#account-order-0 ul > li');
         this.totalAmountField = page.locator('#account-order-0 p', {hasText: 'Total Amount:'});

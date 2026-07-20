@@ -16,6 +16,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  snapshotDir: './data/screenshots',
   testDir: './tests',
   globalTeardown: './global-teardown.js',
  /* Run tests in files in parallel */
@@ -38,7 +39,7 @@ export default defineConfig({
       longitude: 30.5235
 
     },
-    headless: true,
+    headless: false,
     permissions: ['geolocation'],
     timeout: 60 * 1000,
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -67,6 +68,20 @@ export default defineConfig({
       // use: { ...devices['Desktop Chrome'] },
       testIgnore: '**/api.spec.js',
       testMatch: '**/demo.todo.spec.js',
+      dependencies: ['setup-ui'],
+      use: {
+        baseURL: process.env.UI_BASE_URL,
+        storageState: 'data/storageState.json',
+        ...devices['Desktop Chrome'],
+        // channel: 'Chrome',
+        // browserName: 'firefox',
+      }
+    },
+    {
+      name: 'visual-regression',
+      // use: { ...devices['Desktop Chrome'] },
+      testIgnore: '**/api.spec.js',
+      testMatch: '**/visualregression.spec.js',
       dependencies: ['setup-ui'],
       use: {
         baseURL: process.env.UI_BASE_URL,

@@ -10,7 +10,8 @@
     "ui-e2e": "npx playwright test --project=e2e-tests",
     "test-report": "npx playwright show-report",
     "test-debug": "npx playwright test --debug",
-    "api-tests": "npx playwright test --project=api-tests"
+    "api-tests": "npx playwright test --project=api-tests",
+    "visual-regression": "npx playwright test --project=visual-regression"
   },
   "keywords": [],
   "author": "",

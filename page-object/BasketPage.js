@@ -1,7 +1,11 @@
 import { urlToHttpOptions } from 'node:url';
+import { AbstractPage } from '../page-object/AbstractPage';
 
-export class BasketPage {
+
+
+export class BasketPage  extends AbstractPage{
     constructor(page, tabletNameValue, coffeeMachineNameValue, tabletPriceValue, coffeeMachinePriceValue) {
+        super(page);
         this.page = page;
         this.firstProductItem = page.locator('[id="cart-item-name-6"]');
         this.secondProductItem = page.locator('[id="cart-item-name-5"]');

@@ -1,6 +1,8 @@
+import { AbstractPage } from '../page-object/AbstractPage';
 
-export class RegisterPage {
+export class RegisterPage extends AbstractPage{
     constructor(page) {
+        super(page);
         this.page = page;
         this.registerBtn = page.locator('[id="login-register-button"]');
         this.firstNameField = page.locator('[id="register-first-name"]');
